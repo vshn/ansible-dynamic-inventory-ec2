@@ -1,7 +1,7 @@
 Summary: Ansible dynamic inventory script and config for Amazon EC2
 Name: ansible-dynamic-inventory-ec2
 Version: 2.4
-Release: 2
+Release: 3
 License: GPL-3.0
 Source: .
 URL: https://github.com/appuio/ansible-dynamic-inventory-ec2
@@ -25,17 +25,22 @@ Config file for the EC2 inventory script
 cp -v -R -a %SOURCE0/* .
 
 %build
-make 'PYTHON_SITELIB_DIR=%{python_sitelib}' 'SYSCONFDIR=%{_sysconfdir}'
+make 'PYTHON_SITELIB_DIR=%{python_sitelib}'
 
 %install
-%make_install 'PYTHON_SITELIB_DIR=%{python_sitelib}' 'SYSCONFDIR=%{_sysconfdir}'
+%make_install 'PYTHON_SITELIB_DIR=%{python_sitelib}'
 
 %files
-%{python_sitelib}/ansible/contrib/inventory/*
+%{python_sitelib}/ansible/contrib/inventory/ec2.py
+%{python_sitelib}/ansible/contrib/inventory/ec2.ini
 
-%config(noreplace) %{_sysconfdir}/ansible/ec2.ini
+%exclude %{python_sitelib}/ansible/contrib/inventory/ec2.pyc
+%exclude %{python_sitelib}/ansible/contrib/inventory/ec2.pyo
 
 %changelog
+* Wed Apr 19 2018 Gabriel Mainberger <gabriel.mainberger@vshn.ch> 2.4-3
+- Move ini to PYTHON_SITELIB_DIR directory
+
 * Wed Mar 15 2018 Gabriel Mainberger <gabriel.mainberger@vshn.ch> 2.4-2
 - Fixed file execution permission on ec2.py
 
