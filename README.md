@@ -1,18 +1,18 @@
 # RPM package for Ansible dynamic inventory EC2
 
 This package provides build files for a RPM package including the dynamic
-inventory script released with Ansible 2.4 upstream branch. 
+inventory script released with Ansible 2.9 upstream branch.
 
 ## Prerequisites
 
 * RPM build environment ex. https://github.com/mhutter/docker-rpmbuild/
 
-The script is working with Ansible 2.4 (or newer).
+The script is working with Ansible 2.9 (or newer).
 
 ## Getting started
 
 The package contain the script ec2.py and ec2.ini from the upstream Ansible
-repository: https://github.com/ansible/ansible/tree/stable-2.4/contrib/inventory
+repository: https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory
 
 If you searching for a manual, you may find the ressources here:
 
