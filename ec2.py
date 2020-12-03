@@ -157,6 +157,7 @@ These settings would produce a destination_format as the following:
 import sys
 import os
 import argparse
+import bisect
 import re
 from time import time
 from copy import deepcopy
@@ -1647,14 +1648,15 @@ class Ec2Inventory(object):
         return self.json_format_dict(self.get_host_info_dict_from_instance(instance), True)
 
     def push(self, my_dict, key, element):
-        ''' Push an element onto an array that may not have been defined in
-        the dict '''
+        ''' Insert an element into an array that may not have been defined in
+        the dict. The elements are inserted to preserve asciibetical ordering
+        of the array '''
         group_info = my_dict.setdefault(key, [])
         if isinstance(group_info, dict):
             host_list = group_info.setdefault('hosts', [])
-            host_list.append(element)
+            bisect.insort(host_list, element)
         else:
-            group_info.append(element)
+            bisect.insort(group_info, element)
 
     def push_group(self, my_dict, key, element):
         ''' Push a group as a child of another group. '''
