@@ -1,13 +1,13 @@
 Summary: Ansible dynamic inventory script and config for Amazon EC2
 Name: ansible-dynamic-inventory-ec2
-Version: 2.4
-Release: 3
+Version: 2.9
+Release: 1
 License: GPL-3.0
 Source: .
 URL: https://github.com/appuio/ansible-dynamic-inventory-ec2
 Vendor: VSHN AG
 Packager: Gabriel Mainberger <gabriel.mainberger@vshn.ch>
-Requires: ansible >= 2.4
+Requires: ansible >= 2.9
 Requires: python-boto >= 2.24.0
 
 %package config
@@ -38,6 +38,10 @@ make 'PYTHON_SITELIB_DIR=%{python_sitelib}'
 %exclude %{python_sitelib}/ansible/contrib/inventory/ec2.pyo
 
 %changelog
+* Thu Dec 31 2020 Simon Gerber <simon.gerber@vshn.ch> 2.9-1
+- Update ec2.py to version shipped with Ansible 2.9
+- Ensure host ordering in groups is stable
+
 * Wed Apr 19 2018 Gabriel Mainberger <gabriel.mainberger@vshn.ch> 2.4-3
 - Move ini to PYTHON_SITELIB_DIR directory
 
