@@ -12,7 +12,7 @@ The script is working with Ansible 2.9 (or newer).
 ## Getting started
 
 The package contain the script ec2.py and ec2.ini from the upstream Ansible
-repository: https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory
+repository: https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory (more recent versions moved to https://github.com/ansible-community/contrib-scripts/blob/main/inventory/)
 
 If you searching for a manual, you may find the ressources here:
 
